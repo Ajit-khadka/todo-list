@@ -44,12 +44,16 @@ const page = () => {
 }else{
   taskRenderer = allTask.map((t, tIndex) => {
     return (
-    <li key={tIndex} ><div className="flex justify-between">
+    <li key={tIndex} ><div className="flex w-[100%] flex-col justify-center mt-[10px] gap-2">
           <p>
             {tIndex + 1}. {t.task}
           </p>
-          <p>{t.desc}</p>
-          <button className="w-[120px] py-[1.5vh] bg-Teal border-[2px] border-Black rounded-md hover:border-Space hover:text-Space  duration-500 mb-[10px] " onClick={() => deleteHandler(tIndex)} >Delete</button>
+        <div className="gap-4  flex flex-col justify-center">
+        <p className=" justify-center text-justify">{t.desc}</p>
+        
+        <button className="w-[110px] py-[1vh] bg-Teal border-[2px] border-Black rounded-md hover:border-Space hover:text-Space  duration-500  relative mt-[-5px] flex justify-center" onClick={() => deleteHandler(tIndex)} >Delete</button>
+        </div>
+         
         </div>
         </li>)
   });
@@ -89,6 +93,8 @@ const page = () => {
               className="w-[250px] py-[1vh] pl-[10px] outline-none bg-Space text-Teal"
               placeholder="Description..."
               onChange={(e) => descHandler(e)}
+              minLength="3"
+              maxLength="200"
               required
               value={desc}
             />
@@ -97,8 +103,8 @@ const page = () => {
             Add-List
           </button>
         </form>
-        <div className="Tasks border-2 border-Black w-[80vw] rounded-md h-[10%] mt-[4vh] py-[5%] px-[5%]">
-          <ul>{taskRenderer}
+        <div className="Tasks border-2 border-Black w-[80vw] rounded-md h-[10%] mt-[4vh] py-[5%] px-[5%] gap-x-[10vh]">
+          <ul className="">{taskRenderer}
           </ul>
 
         </div>
