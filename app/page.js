@@ -49,7 +49,7 @@ const page = () => {
             {tIndex + 1}. {t.task}
           </p>
         <div className="gap-4  flex flex-col justify-center">
-        <p className=" justify-center text-justify">{t.desc}</p>
+        <p className=" justify-center text-justify break-words">{t.desc}</p>
         
         <button className="w-[110px] py-[1vh] bg-Teal border-[2px] border-Black rounded-md hover:border-Space hover:text-Space  duration-500  relative mt-[-5px] flex justify-center" onClick={() => deleteHandler(tIndex)} >Delete</button>
         </div>
@@ -88,9 +88,9 @@ const page = () => {
             id="inputOutLine"
             className=" overflow-hidden w-[250px] py-[1vh] border-2  hover:border-Teal  rounded-md mt-[2vh]"
           >
-            <input
+            <textarea
               id="desc"
-              className="w-[250px] py-[1vh] pl-[10px] outline-none bg-Space text-Teal"
+              className="w-[250px] h-[5vh] pl-[10px] outline-none bg-Space text-Teal"
               placeholder="Description..."
               onChange={(e) => descHandler(e)}
               minLength="3"
@@ -103,7 +103,7 @@ const page = () => {
             Add-List
           </button>
         </form>
-        <div className="Tasks border-2 border-Black w-[80vw] rounded-md h-[10%] mt-[4vh] py-[5%] px-[5%] gap-x-[10vh]">
+        <div className="Tasks border-2 border-Black w-[80vw] rounded-md h-[10%] mt-[4vh] py-[5%] px-[5%] gap-x-[10vh] ">
           <ul className="">{taskRenderer}
           </ul>
 
